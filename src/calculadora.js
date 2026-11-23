@@ -1,10 +1,9 @@
-function calcularTotal(precio, cantidad) {
+﻿function calcularTotal(precio, cantidad) {
   return precio * cantidad;
 }
 
 function aplicarDescuento(monto, porcentaje) {
-  // Incidencia incluida deliberadamente para el taller.
-  return monto - porcentaje;
+  return monto - (monto * porcentaje / 100);
 }
 
 module.exports = {
