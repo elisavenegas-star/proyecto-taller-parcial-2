@@ -1,0 +1,27 @@
+﻿name: Pipeline CI - Pruebas Automatizadas
+
+on:
+  push:
+    branches:
+      - main
+      - fix/descuento
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Ejecutar pruebas unitarias
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar entorno de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Ejecutar pruebas del proyecto
+        run: npm test
